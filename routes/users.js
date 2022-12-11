@@ -21,8 +21,12 @@ router.post('/', async(req,res) => {
     await user.save();
 
     const token = user.generateAuthToken();
-    //if(token == undefined) res.status(400).send('User is not old enough.')
     res.header('x-auth-token',token).send(_.pick(user,['_id','name','email','birthdate']));
 });
+
+router.get('/me', auth, async(req,res) => {
+    const user = await User.findById(req.user._id).select('-password');
+    res.send(user);
+})
 
 module.exports = router;

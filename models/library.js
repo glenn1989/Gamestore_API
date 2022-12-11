@@ -5,16 +5,19 @@ const {gameSchema} = require('./game');
 
 const Library = mongoose.model('Libraries', new mongoose.Schema({
     user: {
-        type: userSchema
+        type: userSchema,
+        required:true
     },
-    games: [gameSchema]
+    games:{
+        type: [gameSchema]
+    } 
 
 }))
 
 function validateLibrary(library){
     const schema = Joi.object({
         user: Joi.objectid().required(),
-        games: Joi.objectid().required()
+        games: Joi.objectid()
     })
 
     return schema.validate(library);

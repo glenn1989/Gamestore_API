@@ -2,7 +2,6 @@ const Joi = require('joi');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const config = require('config');
-//const JoiCustom = Joi.extend(require('joi-age'));
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -28,7 +27,11 @@ const userSchema = new mongoose.Schema({
         required:true,
         minlength:5,
         maxlength:1024
-    }
+    },
+    isAdmin: {
+        type: Boolean,
+        required:true
+    },
 });
 
 // function isOldEnough(){
@@ -47,7 +50,6 @@ const userSchema = new mongoose.Schema({
 // };
 
 userSchema.methods.generateAuthToken = function(){
-
     const token = jwt.sign({_id: this._id}, config.get('jwtPrivateKey'));
     return token
 }
@@ -58,7 +60,8 @@ function validateUser(user){
         name: Joi.string().min(5).max(50).required(),
         email: Joi.string().min(5).max(255).email().required(),
         birthdate: Joi.date().max(Date.now() - 504911232000),
-        password: Joi.string().min(5).max(255).required()
+        password: Joi.string().min(5).max(255).required(),
+        isAdmin: Joi.boolean().required()
     })
     return schema.validate(user);
 };

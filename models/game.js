@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const {genreSchema} = require('./genre');
 const {studioSchema} = require('./studio');
 
-const Game = mongoose.model('games', new mongoose.Schema({
+const Game = mongoose.model('Game', new mongoose.Schema({
     title: {
         type: String,
         required:true,

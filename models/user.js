@@ -31,31 +31,25 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-function isOldEnough(){
-    var age = Date.now() - userSchema.birthdate;
-    var ageDate = new Date(age);
-    var ageYears = Math.abs(ageDate.getUTCFullYear() - 1970);
+// function isOldEnough(){
+//     var age = Date.now() - userSchema.birthdate;
+//     var ageDate = new Date(age);
+//     var ageYears = Math.abs(ageDate.getUTCFullYear() - 1970);
     
 
-    if(ageYears < 16){
-        return false;
+//     if(ageYears < 16){
+//         return false;
         
-    } else {
-        return true;
+//     } else {
+//         return true;
         
-    }; 
-};
+//     }; 
+// };
 
 userSchema.methods.generateAuthToken = function(){
-    
-    if(!isOldEnough()){
-        return console.log('Not old enough');
-        
-    } else {
-        const token = jwt.sign({_id: this._id}, config.get('jwtPrivateKey'));
-        return token
-    }
 
+    const token = jwt.sign({_id: this._id}, config.get('jwtPrivateKey'));
+    return token
 }
 
 const User = mongoose.model('User',userSchema);

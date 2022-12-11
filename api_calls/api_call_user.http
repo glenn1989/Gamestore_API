@@ -1,0 +1,25 @@
+# USER CALLS #
+
+@base_url=http://localhost:3000/api/users
+
+
+post {{base_url}}
+Content-Type: application/json
+
+{
+    "name":"Glenn",
+    "email":"glenn17@test.be",
+    "birthdate":"1989-10-20T01:00:01",
+    "password":"12345"
+}
+
+###
+post {{base_url}}
+Content-Type: application/json
+
+{
+    "name":"Stefanie",
+    "email":"stef1@test.be",
+    "birthdate":"2015-10-20T01:00:01",
+    "password":"12345"
+}

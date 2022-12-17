@@ -1,0 +1,34 @@
+#Library calls#
+
+
+
+@base_url = http://localhost:3000/api/libraries
+
+###
+post {{base_url}}
+Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODYxMTgzMGY0NWQ0YjA0MmYwNjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzExMzcwNjF9.MUGU8qnUTZjhORDbLaC9u_csadMWaqwO00pZvsF6Z94
+
+{
+    "user":"639b81d86a8df3bb367645af"
+}
+
+###
+@objId=639ddb097207590932054f3d
+put {{base_url}}/{{objId}}
+Content-Type: application/json
+
+{
+    "user":"639b81d86a8df3bb367645af",
+    "game":"639dcefb6763034c6cedfb2a"
+}
+
+###
+@objId=639ddb097207590932054f3d
+put {{base_url}}/{{objId}}
+Content-Type: application/json
+
+{
+    "user":"639b81d86a8df3bb367645af",
+    "game":"639b8dbf6763034c6cedfb22"
+}

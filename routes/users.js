@@ -6,7 +6,7 @@ const _ = require('lodash');
 const config = require('config');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
+const auth = require('../middleware/auth');
 
 router.post('/', async(req,res) => {
     const { error } = validate(req.body);
@@ -16,12 +16,12 @@ router.post('/', async(req,res) => {
 
     let user = await User.findOne({email:req.body.email});
     if(user) res.status(400).send('User already registered');
-    user = new User(_.pick(req.body,['name','email','birthdate','password']))
+    user = new User(_.pick(req.body,['name','email','birthdate','password','isAdmin']));
     user.password = await bcrypt.hash(user.password,salt);
     await user.save();
 
     const token = user.generateAuthToken();
-    res.header('x-auth-token',token).send(_.pick(user,['_id','name','email','birthdate']));
+    res.header('x-auth-token',token).send(_.pick(user,['_id','name','email','birthdate','isAdmin']));
 });
 
 router.get('/me', auth, async(req,res) => {

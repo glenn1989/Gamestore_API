@@ -8,7 +8,7 @@ const games = require('./routes/games');
 const genres = require('./routes/genres');
 const libraries = require('./routes/libraries');
 const studios = require('./routes/studios');
-
+const auth = require('./routes/auth');
 
 mongoose.connect('mongodb://localhost/gamestore')
 .then(() => console.log('Connected to MongoDB'))
@@ -20,6 +20,7 @@ app.use('/api/genres',genres);
 app.use('/api/games',games);
 app.use('/api/libraries', libraries);
 app.use('/api/studios',studios);
+app.use('/api/auth',auth);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));

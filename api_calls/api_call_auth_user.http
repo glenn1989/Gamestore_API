@@ -1,0 +1,24 @@
+# USER CALLS #
+
+@base_url=http://localhost:3000/api/auth
+
+
+post {{base_url}}
+Content-Type: application/json
+
+{
+    "email":"glenn15@test.be",
+    "password":"12345"
+}
+
+###
+
+post {{base_url}}
+Content-Type: application/json
+
+{
+    
+    "email":"GK@test.be",
+    "password":"12345"
+}
+

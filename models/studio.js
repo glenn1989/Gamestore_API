@@ -28,5 +28,6 @@ function validateStudio(studio){
     return schema.validate(studio);
 };
 
+exports.studioSchema = studioSchema;
 exports.Studio = Studio;
 exports.validate = validateStudio;

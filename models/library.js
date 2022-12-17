@@ -3,21 +3,18 @@ const mongoose = require('mongoose');
 const {userSchema} = require('./user');
 const {gameSchema} = require('./game');
 
-const Library = mongoose.model('Libraries', new mongoose.Schema({
+const Library = mongoose.model('Library', new mongoose.Schema({
     user: {
         type: userSchema,
         required:true
     },
-    games:{
-        type: [gameSchema]
-    } 
-
+    games: [gameSchema]
 }))
 
 function validateLibrary(library){
     const schema = Joi.object({
-        user: Joi.objectid().required(),
-        games: Joi.objectid()
+        user: Joi.objectId(),
+        game: Joi.objectId()
     })
 
     return schema.validate(library);

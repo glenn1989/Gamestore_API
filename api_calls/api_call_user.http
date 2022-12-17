@@ -20,6 +20,32 @@ Content-Type: application/json
 {
     "name":"Stefanie",
     "email":"stef1@test.be",
-    "birthdate":"2015-10-20T01:00:01",
+    "birthdate":"2001-10-20T01:00:01",
     "password":"12345"
+}
+
+###
+
+post {{base_url}}
+Content-Type: application/json
+
+{
+    "name":"Tinee",
+    "email":"tine@test.be",
+    "birthdate":"1999-08-24T01:00:01",
+    "password":"12345",
+    "isAdmin":"false"
+}
+
+###
+
+post {{base_url}}
+Content-Type: application/json
+
+{
+    "name":"GKadmin",
+    "email":"GK@test.be",
+    "birthdate":"1999-08-24T01:00:01",
+    "password":"12345",
+    "isAdmin":"true"
 }

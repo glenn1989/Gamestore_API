@@ -1,4 +1,6 @@
 const {Game, validate} = require('../models/game');
+const {Genre} = require('../models/genre');
+const {Studio} = require('../models/studio');
 const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
@@ -14,8 +16,14 @@ router.post('/', [auth,admin] , async (req, res) => {
   const { error } = validate(req.body); 
   if (error) return res.status(400).send(error.details[0].message);
 
+  const genre = await Genre.findById(req.body.genreId);
+  if(!genre) return res.status(400).send(error.details[0].message);
+
+  const studio = await Studio.findById(req.body.studioId);
+  if(!studio) return res.status(400).send(error.details[0].message);
+
   let games = new Game({ 
-    title: req.body.name,
+    title: req.body.title,
     genre: {
         _id: genre._id,
         name: genre.name
@@ -25,7 +33,7 @@ router.post('/', [auth,admin] , async (req, res) => {
         name: studio.name,
         location: studio.location
     } });
-  games = await games.save();
+  await games.save();
   
   res.send(games);
 });

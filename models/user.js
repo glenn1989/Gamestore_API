@@ -29,28 +29,12 @@ const userSchema = new mongoose.Schema({
         maxlength:1024
     },
     isAdmin: {
-        type: Boolean,
-        required:true
-    },
+        type: Boolean
+    }
 });
 
-// function isOldEnough(){
-//     var age = Date.now() - userSchema.birthdate;
-//     var ageDate = new Date(age);
-//     var ageYears = Math.abs(ageDate.getUTCFullYear() - 1970);
-    
-
-//     if(ageYears < 16){
-//         return false;
-        
-//     } else {
-//         return true;
-        
-//     }; 
-// };
-
 userSchema.methods.generateAuthToken = function(){
-    const token = jwt.sign({_id: this._id}, config.get('jwtPrivateKey'));
+    const token = jwt.sign({_id: this._id, isAdmin: this.isAdmin}, config.get('jwtPrivateKey'));
     return token
 }
 
@@ -61,10 +45,11 @@ function validateUser(user){
         email: Joi.string().min(5).max(255).email().required(),
         birthdate: Joi.date().max(Date.now() - 504911232000),
         password: Joi.string().min(5).max(255).required(),
-        isAdmin: Joi.boolean().required()
+        isAdmin: Joi.boolean()
     })
     return schema.validate(user);
 };
 
+exports.userSchema = userSchema;
 exports.User = User;
 exports.validate = validateUser;

@@ -1,0 +1,25 @@
+# Studio Calls #
+
+@base_url= http://localhost:3000/api/studios
+
+post {{base_url}}
+Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODYxMTgzMGY0NWQ0YjA0MmYwNjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzExMzcwNjF9.MUGU8qnUTZjhORDbLaC9u_csadMWaqwO00pZvsF6Z94
+
+{
+    "name":"EA Games",
+    "location":"New York"
+    
+}
+
+###
+
+post {{base_url}}
+Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODYxMTgzMGY0NWQ0YjA0MmYwNjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzExMzcwNjF9.MUGU8qnUTZjhORDbLaC9u_csadMWaqwO00pZvsF6Z94
+
+{
+    "name":"CD Project Red",
+    "location":"Warsaw"
+    
+}

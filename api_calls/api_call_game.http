@@ -1,7 +1,7 @@
 # USER CALLS #
 
 @base_url=http://localhost:3000/api/games
-
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODYxMTgzMGY0NWQ0YjA0MmYwNjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzE1NDE3MDN9.SijXTFo9zRoHmA4zu6by6T0t7d0MYlxMfB0GEhBIIWM
 
 post {{base_url}}
 Content-Type: application/json
@@ -27,3 +27,20 @@ x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODYxMTgzMGY0N
     
 }
 
+### 
+
+@objId=639b8dbf6763034c6cedfb22
+delete {{base_url}}/{{objId}}
+Content-Type: application/json
+x-auth-token: {{token}}
+
+###
+
+@objId2=639dcefb6763034c6cedfb2a
+
+get {{base_url}}/{{objId2}}
+Content-Type: application/json
+
+###
+get {{base_url}}
+Content-Type: application/json

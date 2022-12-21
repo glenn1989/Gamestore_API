@@ -1,11 +1,12 @@
 # GENRE CALLS #
 
 @base_url=http://localhost:3000/api/genres
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzlhMDhiZjFhMjFlNmM0OWUyMGZjODgiLCJpYXQiOjE2NzEwMzkxOTZ9.oE6Yq_sZzUKKSX7k7KFxNKu1QTU5YqqYSODWtdzdc5k
+
+@tokenAD=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODYxMTgzMGY0NWQ0YjA0MmYwNjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzE1NjgwNDJ9.jmiM75s82LJApEiNsuvHH4Is92Kf1ehMEawIxuBqud0
 
 post {{base_url}}
 Content-Type: application/json
-x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzlhMDhiZjFhMjFlNmM0OWUyMGZjODgiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzEwMzkzMTd9.GlCpUFCicM0B4r9FhEYMZKspRsetq8xsfp0BtUXywtA
+x-auth-token: {{tokenAD}}
 
 {
     "name":"Horror"
@@ -13,21 +14,19 @@ x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzlhMDhiZjFhMjFlN
 
 ###
 
-post {{base_url}}
+@objId=639a09d13b1c83fb41dc364f
+put {{base_url}}/{{objId}}
 Content-Type: application/json
-x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODYxMTgzMGY0NWQ0YjA0MmYwNjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzExMzY3ODZ9.2N9jm2dwSO8HGjZ_i65KjqSeIO0487-ZwjLbhSOfzHQ
+x-auth-token: {{tokenAD}}
 
 {
-    "name":"testRacing"
+    "name":"Simulator"
 }
-
 
 ###
 
-post {{base_url}}
-Content-Type: application/json
-x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODFkODZhOGRmM2JiMzY3NjQ1YWYiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjcxMTM2MDg0fQ.5JVlLUsY8rF21pfxg7QRU9yf7SibtkKCieL3fa5gm5M
+@objId2=639a0aca8a545ec56a298438
 
-{
-    "name":"testtest"
-}
+delete {{base_url}}/{{objId2}}
+Content-Type: application/json
+x-auth-token: {{tokenAD}}

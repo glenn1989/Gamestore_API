@@ -10,5 +10,29 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "mongoose": "^6.8.0"
-  }
+  },
+  "name": "gamestore_api",
+  "version": "1.0.0",
+  "description": "gamestore api with library function",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glenn1989/Gamestore_API.git"
+  },
+  "keywords": [
+    "gamestore",
+    "api",
+    "project",
+    "libraries"
+  ],
+  "author": "Glenn Karimjee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/glenn1989/Gamestore_API/issues"
+  },
+  "homepage": "https://github.com/glenn1989/Gamestore_API#readme"
 }

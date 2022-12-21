@@ -3,11 +3,12 @@
 @base_url=http://localhost:3000/api/auth
 
 
+
 post {{base_url}}
 Content-Type: application/json
 
 {
-    "email":"glenn15@test.be",
+    "email":"tine@test.be",
     "password":"12345"
 }
 

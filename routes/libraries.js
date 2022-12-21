@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 const auth = require('../middleware/auth');
+const admin = require('../middleware/admin');
 const Fawn = require('fawn');
 
 Fawn.init('mongodb://localhost/gamestore');
@@ -22,12 +23,6 @@ router.post('/', auth ,async (req, res) => {
     const user = await User.findById(req.body.user);
     if (!user) return res.status(400).send('Invalid user.');
 
-    
-    if(req.body.game){
-      const game = await Game.findById(req.body.gameId);
-      if (!game) return res.status(400).send('Invalid game.');
-    } 
-
     let library = new Library({
       user: {
         _id: user._id,
@@ -35,6 +30,7 @@ router.post('/', auth ,async (req, res) => {
         email: user.email
       }
     });
+
   
     try {
       new Fawn.Task()
@@ -48,7 +44,7 @@ router.post('/', auth ,async (req, res) => {
     }
   });
 
-  router.put('/:id', async(req,res) => {
+  router.put('/:id', auth ,async(req,res) => {
     const { error } = validate(req.body);
     if(error) return res.status(400).send(error.details[0].message);
 
@@ -78,15 +74,14 @@ router.post('/', auth ,async (req, res) => {
     res.send(libraryUpdate);
   })
 
+  // delete library
 
+  router.delete('/:id', [auth,admin] , async(req,res) => {
 
-  // async function FindGame(gameId){
+    const library = await Library.findByIdAndDelete(req.params.id);
+    if(!library) return res.status(404).send("The library is not found");
 
-  //   const game = await Game.findById(gameId);
-  //   if (!game) return res.status(400).send('Invalid game.');
-
-  //   return game;
-  // } 
-
+    res.send(library);
+  });
 
   module.exports = router;

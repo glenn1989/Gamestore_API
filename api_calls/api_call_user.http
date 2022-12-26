@@ -36,8 +36,8 @@ post {{base_url}}
 Content-Type: application/json
 
 {
-    "name":"GKadmin",
-    "email":"GK@test.be",
+    "name":"GKadmin2",
+    "email":"GK2@test.be",
     "birthdate":"1999-08-24T01:00:01",
     "password":"12345",
     "isAdmin":"true"

@@ -44,3 +44,8 @@ Content-Type: application/json
 ###
 get {{base_url}}
 Content-Type: application/json
+
+###
+
+get {{base_url}}/studio/CD Project Red
+Content-Type: application/json

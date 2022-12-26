@@ -12,6 +12,16 @@ router.get('/', async (req, res) => {
   res.send(games);
 });
 
+router.get('/studio/:studio', async (req,res)=> {
+  const gameByStudio = await Game
+  .find({"studio.name": {$regex: `^${req.params.studio}`, $options:'1'}})
+  .select('title')
+
+  if(gameByStudio.length === 0) return res.status(400).send('No such studio in the DB');
+
+  res.send(gameByStudio);
+});
+
 router.post('/', [auth,admin] , async (req, res) => {
   const { error } = validate(req.body); 
   if (error) return res.status(400).send(error.details[0].message);

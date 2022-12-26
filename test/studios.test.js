@@ -100,7 +100,7 @@ describe('GET/:id', () => {
 
         expect(studioRes.status).to.equal(200)
     });
-    it('find genre by id: should be error 404', async () => {
+    it('find studio by id: should be error 404', async () => {
         const id = '63a9db46338c483d42abfb84'
         const res = await request(server).get(`/api/studios/${id}`);
 

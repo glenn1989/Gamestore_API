@@ -13,7 +13,7 @@ describe('api/studios', () => {
 
 describe('POST/', () => {
     it('should be status 200', async () => {
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIwNzYxMDJ9.-o2MkiO_SUdLSDi_7hIae7Y-wMuL6DS3DFG_8C4BGSE';
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIxNjc2MjV9._Takc0zOrRng-v5MC5xeE16k_eAE40K6KvhU6kQPl0U';
         const res = await request(server)
         .post('/api/studios')
         .set('Content-type', 'application/json')
@@ -45,7 +45,7 @@ describe('POST/', () => {
 });
 describe('DELETE/:id', () => {
     it('should be status 200', async () => {
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIwNzYxMDJ9.-o2MkiO_SUdLSDi_7hIae7Y-wMuL6DS3DFG_8C4BGSE';
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIxNjc2MjV9._Takc0zOrRng-v5MC5xeE16k_eAE40K6KvhU6kQPl0U';
         await Studio.collection.insertOne({name:"test studio 1", location:'location studio 1'});
         const studio = await request(server).get('/api/studios')
         const res = await request(server)
@@ -67,7 +67,7 @@ describe('DELETE/:id', () => {
 });
 describe('PUT/:id', () => {
     it('should be status 200: update record', async () => {
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIwNzYxMDJ9.-o2MkiO_SUdLSDi_7hIae7Y-wMuL6DS3DFG_8C4BGSE'
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIxNjc2MjV9._Takc0zOrRng-v5MC5xeE16k_eAE40K6KvhU6kQPl0U'
         await Studio.collection.insertOne({name:"test studio 1", location:'location studio 1'});
         const studio = await request(server).get('/api/studios')
         const res = await request(server)
@@ -81,7 +81,7 @@ describe('PUT/:id', () => {
         expect(res.status).to.equal(200)
     });
     it('should be status 404: genre not found', async () => {
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIwNzYxMDJ9.-o2MkiO_SUdLSDi_7hIae7Y-wMuL6DS3DFG_8C4BGSE'
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIxNjc2MjV9._Takc0zOrRng-v5MC5xeE16k_eAE40K6KvhU6kQPl0U'
         const id = '63a9db46338c483d42abfb84';
 
         const res = await request(server)

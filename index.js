@@ -11,6 +11,8 @@ const libraries = require('./routes/libraries');
 const studios = require('./routes/studios');
 const auth = require('./routes/auth');
 require('dotenv').config();
+console.log(process.env.gamestore_jwtPrivateKey)
+
 
 mongoose.connect(config.get('db'))
 .then(() => console.log(`Connected to ${config.get('db')}`))

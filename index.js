@@ -14,6 +14,7 @@ require('dotenv').config();
 console.log(process.env.gamestore_jwtPrivateKey)
 
 
+
 if (!config.get('jwtPrivateKey')){
     console.error('FATAL ERROR: jwtPrivateKey not defined');
     process.exit(1);

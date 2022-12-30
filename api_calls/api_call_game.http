@@ -22,8 +22,8 @@ x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODYxMTgzMGY0N
 
 {
     "title":"The Witcher 3: Wild Hunt",
-    "genreId":"6398eb0969baa19f93fa5834",
-    "studioId":"639dcec46763034c6cedfb26"
+    "genreId":"63af238a6cc1114999a7aabe",
+    "studioId":"63af23a76cc1114999a7aac0"
     
 }
 
@@ -48,4 +48,8 @@ Content-Type: application/json
 ###
 
 get {{base_url}}/studio/CD Project Red
+Content-Type: application/json
+
+###
+get {{base_url}}/genre/RPG
 Content-Type: application/json

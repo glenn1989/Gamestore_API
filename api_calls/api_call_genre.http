@@ -2,14 +2,13 @@
 
 @base_url=http://localhost:3000/api/genres
 
-@tokenAD=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODYxMTgzMGY0NWQ0YjA0MmYwNjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzE1NjgwNDJ9.jmiM75s82LJApEiNsuvHH4Is92Kf1ehMEawIxuBqud0
-
+@tokenAD=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FmMjM2YjZjYzExMTQ5OTlhN2FhYmMiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI0MjIyNTF9.n69Fw0INihKYHtayfi0-46MRl6pr0n-WfePQp-w97e4
 post {{base_url}}
 Content-Type: application/json
 x-auth-token: {{tokenAD}}
 
 {
-    "name":"Horror"
+    "name":"RPG"
 }
 
 ###

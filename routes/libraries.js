@@ -7,8 +7,9 @@ const router = express.Router();
 const auth = require('../middleware/auth');
 const admin = require('../middleware/admin');
 const Fawn = require('fawn');
+const config = require('config');
 
-Fawn.init('mongodb://localhost/gamestore');
+Fawn.init(config.get('db'));
 
 router.get('/', async (req,res) => {
     const libraries = await Library.find().sort();

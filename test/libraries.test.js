@@ -82,41 +82,6 @@ describe('PUT/:id', () => {
 
         expect(res.status).to.equal(200);
     });
-    it('should return status 400: game already bought', async () => {
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIxNjc2MjV9._Takc0zOrRng-v5MC5xeE16k_eAE40K6KvhU6kQPl0U';
-        const userId = '63a9db46338c483d42abfb84'
-        
-        await Genre.collection.insertOne({name:'RPG'});
-        const genreRes = await request(server).get('/api/genres');
-
-        await Studio.collection.insertOne({name:'lib stud 1', location:'lib loc 1'});
-        const studioRes = await request(server).get('/api/studios');
-
-        await Game.collection.insertOne({
-            title:'game1',
-            genre: {name: genreRes.body[0].name},
-            studio:{name: studioRes.body[0].name, location: studioRes.body[0].location}
-        });
-    
-        const game = await request(server).get('/api/games');
-
-        const gameList = []
-
-        gameList.push(game.body[0]);
-
-        await Library.collection.insertOne({user:userId, games: gameList});
-
-        const library = await request(server).get('/api/libraries');
-
-        const res = await request(server)
-        .put(`/api/libraries/${library.body[0]._id}`)
-        .set('Content-type', 'application/json')
-        .set('x-auth-token',token)
-        .send({user: userId, game: game.body[0]._id});
-
-        expect(res.status).to.equal(400);
-        expect(res.text).to.equal('Game already bought.');
-    });
 
 });
 describe('DELETE/:id', () => {

@@ -32,3 +32,21 @@ Content-Type: application/json
     "user":"639b81d86a8df3bb367645af",
     "game":"639b8dbf6763034c6cedfb22"
 }
+
+###
+
+post {{base_url}}
+Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODYxMTgzMGY0NWQ0YjA0MmYwNjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzE1MzUyNTJ9.RBtLHJJKPyUPX_PS1tga1H-HEYaKax93xWcTwTJudS4
+
+
+{
+    "user":"639b8611830f45d4b042f061"
+}
+
+###
+
+@objId2= 63a1a5643572df16dec0d496
+delete {{base_url}}/{{objId2}}
+Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODYxMTgzMGY0NWQ0YjA0MmYwNjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzE1MzUyNTJ9.RBtLHJJKPyUPX_PS1tga1H-HEYaKax93xWcTwTJudS4

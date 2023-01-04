@@ -1,6 +1,7 @@
 # Studio Calls #
 
 @base_url= http://localhost:3000/api/studios
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FmMjM2YjZjYzExMTQ5OTlhN2FhYmMiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI0MjIyNTF9.n69Fw0INihKYHtayfi0-46MRl6pr0n-WfePQp-w97e4
 
 post {{base_url}}
 Content-Type: application/json
@@ -16,10 +17,31 @@ x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODYxMTgzMGY0N
 
 post {{base_url}}
 Content-Type: application/json
-x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODYxMTgzMGY0NWQ0YjA0MmYwNjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzExMzcwNjF9.MUGU8qnUTZjhORDbLaC9u_csadMWaqwO00pZvsF6Z94
+x-auth-token: {{token}}
 
 {
     "name":"CD Project Red",
     "location":"Warsaw"
     
 }
+
+###
+@objId=639b8749830f45d4b042f066
+put {{base_url}}/{{objId}}
+Content-Type: application/json
+x-auth-token:{{token}}
+
+{
+    "name":"EA Games",
+    "location":"Vancouver"
+}
+
+###
+@objId=639b8749830f45d4b042f066
+
+get {{base_url}}/{{objId}}
+Content-Type: application/json
+
+###
+get {{base_url}}
+Content-Type: application/json

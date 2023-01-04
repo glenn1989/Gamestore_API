@@ -2,7 +2,6 @@ const request = require('supertest');
 const {Studio} = require('../models/studio');
 const expect = require('chai').expect;
 
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI3NzA4ODJ9.O7Jc8Gwk_GAxqfgCPAbivPy1kb-3G56ZuA5C1RgkIik';
 
 describe('api/studios', () => {
     beforeEach( () => { server = require('../index');})
@@ -14,7 +13,7 @@ describe('api/studios', () => {
 
 describe('POST/', () => {
     it('should be status 200', async () => {
-        
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIxNjc2MjV9._Takc0zOrRng-v5MC5xeE16k_eAE40K6KvhU6kQPl0U';
         const res = await request(server)
         .post('/api/studios')
         .set('Content-type', 'application/json')
@@ -23,22 +22,22 @@ describe('POST/', () => {
 
         expect(res.status).to.equal(200)
     });
-    it('should be status 403: access denied', async () => {
-        const invalidtoken = "eyJfaWQiOiI2M2E5YmFhMmFlOGI0OWI3NDViMjVlMzQiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjcyMDY3NzU5fQ.QM_vspcQqOmns_HDlvNeqp7_WWFAOgDGIpAzvA4KRK0";
+    it('should be status 403: acces denied', async () => {
+        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5YmFhMmFlOGI0OWI3NDViMjVlMzQiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjcyMDY3NzU5fQ.QM_vspcQqOmns_HDlvNeqp7_WWFAOgDGIpAzvA4KRK0";
         const res = await request(server)
         .post('/api/studios')
         .set('Content-type', 'application/json')
-        .set('x-auth-token',invalidtoken)
+        .set('x-auth-token',token)
         .send({name:'studio1',location:'testloc1'})
 
         expect(res.status).to.equal(403)
     });
     it('should be status 400: invalid token', async () => {
-        const invalidtoken = "eyJfaWQiOiI2M2E5YmFhMmFlOGI0OWI3NDViMjVlMzQiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjcyMDY3NzU5fQ.QM_vspcQqOmns_HDlvNeqp7_WWFAOgDGIpAzvA4KRK0";
+        const token = "eyJfaWQiOiI2M2E5YmFhMmFlOGI0OWI3NDViMjVlMzQiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjcyMDY3NzU5fQ.QM_vspcQqOmns_HDlvNeqp7_WWFAOgDGIpAzvA4KRK0";
         const res = await request(server)
         .post('/api/studios')
         .set('Content-type', 'application/json')
-        .set('x-auth-token',invalidtoken)
+        .set('x-auth-token',token)
         .send({name:'studio1',location:'testloc1'})
 
         expect(res.status).to.equal(400)
@@ -46,7 +45,7 @@ describe('POST/', () => {
 });
 describe('DELETE/:id', () => {
     it('should be status 200', async () => {
-       
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIxNjc2MjV9._Takc0zOrRng-v5MC5xeE16k_eAE40K6KvhU6kQPl0U';
         await Studio.collection.insertOne({name:"test studio 1", location:'location studio 1'});
         const studio = await request(server).get('/api/studios')
         const res = await request(server)
@@ -56,7 +55,7 @@ describe('DELETE/:id', () => {
         expect(res.status).to.equal(200);
     });
     it('should be status 404: genre not found', async () => {
-        
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIwNzYxMDJ9.-o2MkiO_SUdLSDi_7hIae7Y-wMuL6DS3DFG_8C4BGSE';
         const id = '63a9db46338c483d42abfb84';
         
         const res = await request(server)
@@ -68,7 +67,7 @@ describe('DELETE/:id', () => {
 });
 describe('PUT/:id', () => {
     it('should be status 200: update record', async () => {
-        
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIxNjc2MjV9._Takc0zOrRng-v5MC5xeE16k_eAE40K6KvhU6kQPl0U'
         await Studio.collection.insertOne({name:"test studio 1", location:'location studio 1'});
         const studio = await request(server).get('/api/studios')
         const res = await request(server)
@@ -82,7 +81,7 @@ describe('PUT/:id', () => {
         expect(res.status).to.equal(200)
     });
     it('should be status 404: genre not found', async () => {
-        
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIxNjc2MjV9._Takc0zOrRng-v5MC5xeE16k_eAE40K6KvhU6kQPl0U'
         const id = '63a9db46338c483d42abfb84';
 
         const res = await request(server)

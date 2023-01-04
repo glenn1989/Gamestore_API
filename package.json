@@ -2,6 +2,7 @@
   "dependencies": {
     "bcrypt": "^5.1.0",
     "config": "^3.3.8",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "fawn": "^2.1.5",
     "joi": "^17.7.0",
@@ -10,5 +11,33 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "mongoose": "^6.8.0"
+  },
+  "name": "gamestore_api",
+  "version": "1.0.0",
+  "description": "gamestore api with library function",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glenn1989/Gamestore_API.git"
+  },
+  "keywords": [
+    "gamestore",
+    "api",
+    "project",
+    "libraries"
+  ],
+  "author": "Glenn Karimjee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/glenn1989/Gamestore_API/issues"
+  },
+  "homepage": "https://github.com/glenn1989/Gamestore_API#readme",
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "supertest": "^6.3.3"
   }
 }

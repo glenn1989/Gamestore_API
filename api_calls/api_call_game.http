@@ -1,7 +1,7 @@
 # USER CALLS #
 
 @base_url=http://localhost:3000/api/games
-
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODYxMTgzMGY0NWQ0YjA0MmYwNjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzE1NDE3MDN9.SijXTFo9zRoHmA4zu6by6T0t7d0MYlxMfB0GEhBIIWM
 
 post {{base_url}}
 Content-Type: application/json
@@ -22,8 +22,34 @@ x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODYxMTgzMGY0N
 
 {
     "title":"The Witcher 3: Wild Hunt",
-    "genreId":"6398eb0969baa19f93fa5834",
-    "studioId":"639dcec46763034c6cedfb26"
+    "genreId":"63af238a6cc1114999a7aabe",
+    "studioId":"63af23a76cc1114999a7aac0"
     
 }
 
+### 
+
+@objId=639b8dbf6763034c6cedfb22
+delete {{base_url}}/{{objId}}
+Content-Type: application/json
+x-auth-token: {{token}}
+
+###
+
+@objId2=639dcefb6763034c6cedfb2a
+
+get {{base_url}}/{{objId2}}
+Content-Type: application/json
+
+###
+get {{base_url}}
+Content-Type: application/json
+
+###
+
+get {{base_url}}/studio/CD Project Red
+Content-Type: application/json
+
+###
+get {{base_url}}/genre/RPG
+Content-Type: application/json

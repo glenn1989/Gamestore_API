@@ -6,7 +6,7 @@ const auth = require('../middleware/auth');
 const admin = require('../middleware/admin');
 
 router.get('/', async (req, res) => {
-  const studios = await studios.find().sort('name');
+  const studios = await Studio.find().sort('name');
   res.send(studios);
 });
 

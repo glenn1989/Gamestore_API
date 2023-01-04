@@ -6,6 +6,7 @@ const _ = require('lodash');
 const config = require('config');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const admin =require('../middleware/admin');
 const auth = require('../middleware/auth');
 
 router.post('/', async(req,res) => {
@@ -29,4 +30,10 @@ router.get('/me', auth, async(req,res) => {
     res.send(user);
 })
 
+router.delete('/:id', auth, async(req,res)=>{
+    const user = await User.findByIdAndDelete(req.params.id);
+    if(!user) return res.status(404).send("user not found");
+
+    res.send(user);
+})
 module.exports = router;

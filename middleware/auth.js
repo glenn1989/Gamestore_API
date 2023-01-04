@@ -8,12 +8,10 @@ module.exports = function (req,res,next){
     {
         const decoded = jwt.verify(token,config.get('jwtPrivateKey'));
         req.user = decoded;
-        console.log("done stuff")
         next();
     }
     catch(ex)
     {
         res.status(400).send('Invalid token');
-        console.log("error 400")
     }
 }

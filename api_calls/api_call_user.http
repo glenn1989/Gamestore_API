@@ -1,17 +1,10 @@
 # USER CALLS #
 
 @base_url=http://localhost:3000/api/users
+@tokenNA=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODFkODZhOGRmM2JiMzY3NjQ1YWYiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjcxNTY3NzcyfQ.4JB2A6sLkYLf21CNTE4J7UbWnCkbxrWz60OoIuCPZWg
 
 
-post {{base_url}}
-Content-Type: application/json
 
-{
-    "name":"Glenn",
-    "email":"glenn17@test.be",
-    "birthdate":"1989-10-20T01:00:01",
-    "password":"12345"
-}
 
 ###
 post {{base_url}}
@@ -43,9 +36,20 @@ post {{base_url}}
 Content-Type: application/json
 
 {
-    "name":"GKadmin",
-    "email":"GK@test.be",
+    "name":"GKadmin2",
+    "email":"GK2@test.be",
     "birthdate":"1999-08-24T01:00:01",
     "password":"12345",
     "isAdmin":"true"
 }
+###
+@objId2=63a1ac47d94b3fc994db8ad0
+DELETE {{base_url}}/{{objId2}}
+Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODYxMTgzMGY0NWQ0YjA0MmYwNjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzE1NDA5MDR9._sxr36xLTw00o6602Ok2RHOxV4-AVUOpZgh39ZOh19I
+
+###
+
+get {{base_url}}/me
+Content-Type: application/json
+x-auth-token:{{tokenNA}}

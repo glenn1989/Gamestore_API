@@ -7,20 +7,21 @@
 ###
 post {{base_url}}
 Content-Type: application/json
-x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODYxMTgzMGY0NWQ0YjA0MmYwNjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzExMzcwNjF9.MUGU8qnUTZjhORDbLaC9u_csadMWaqwO00pZvsF6Z94
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FmMjM2YjZjYzExMTQ5OTlhN2FhYmMiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI4NTQzNzB9.bXUf0hDfrCb4LKwHrm_vPaXusAEN6rahe_KJ9aMHfSA
 
 {
-    "user":"639b81d86a8df3bb367645af"
+    "user":"63af236b6cc1114999a7aabc"
 }
 
 ###
-@objId=639ddb097207590932054f3d
-put {{base_url}}/{{objId}}
+@objId = "63b5c03ce2a91c29d69a555c"
+put {{base_url}}/63b5c03ce2a91c29d69a555c
 Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FmMjM2YjZjYzExMTQ5OTlhN2FhYmMiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI4NTQzNzB9.bXUf0hDfrCb4LKwHrm_vPaXusAEN6rahe_KJ9aMHfSA
 
 {
-    "user":"639b81d86a8df3bb367645af",
-    "game":"639dcefb6763034c6cedfb2a"
+    "user":"63af236b6cc1114999a7aabc",
+    "game":"63af23d86cc1114999a7aac4"
 }
 
 ###

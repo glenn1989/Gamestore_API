@@ -6,6 +6,7 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../middleware/auth');
 const admin = require('../middleware/admin');
+const _ = require('lodash');
 
 
 router.get('/', async (req,res) => {
@@ -27,11 +28,13 @@ router.post('/', auth ,async (req, res) => {
       user: {
         _id: user._id,
         name: user.name, 
-        email: user.email
+        email: user.email,
+        birthdate: user.birthdate,
+        password: user.password
       }
     });
-    await libraries.save();
-    res.send(libraries);
+    libraries = libraries.save();
+    res.send(_.pick(libraries,['user._id','user.name','user.email']));
 });
 
   router.put('/:id', auth ,async(req,res) => {
@@ -45,15 +48,19 @@ router.post('/', auth ,async (req, res) => {
     if(!userFound) return res.status(400).send('No user found.')
 
     const library = await Library.findById(req.params.id);
+    if(!library) return res.status(400).send('no library found')
     const libraryList = library.games;
 
     for(let i = 0; i < libraryList.length; i++){
-      if(libraryList[i]._id === game._id){
-        return res.status(400).send('Game already bought.')
-      } else{
-        libraryList.push(game);
-      }
+        if(libraryList[i]._id === game._id){
+          return res.status(400).send('Game already bought.')            
+        } else{
+              libraryList.push(game);
+        }
     }
+    
+
+    
     const libraryUpdate = await Library.findByIdAndUpdate(req.params.id,{
       user: userFound,
       games: libraryList

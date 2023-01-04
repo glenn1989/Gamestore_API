@@ -1,7 +1,8 @@
 # Studio Calls #
 
 @base_url= http://localhost:3000/api/studios
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FmMjM2YjZjYzExMTQ5OTlhN2FhYmMiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI0MjIyNTF9.n69Fw0INihKYHtayfi0-46MRl6pr0n-WfePQp-w97e4
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I1Y2JiZjVhOTdhMjZkMGM2Zjg5MjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI4NTg1NTl9.r_fd7eu6ryKCnwiDHg2gp3haDBnHNOCdWIEC74VBokE
+
 
 post {{base_url}}
 Content-Type: application/json

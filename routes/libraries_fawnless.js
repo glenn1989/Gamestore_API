@@ -51,19 +51,32 @@ router.post('/', auth ,async (req, res) => {
     if(!library) return res.status(400).send('no library found')
     const libraryList = library.games;
 
-    for(let i = 0; i < libraryList.length; i++){
+    if(libraryList.length != 0){
+      for(let i = 0; i < libraryList.length; i++){
         if(libraryList[i]._id === game._id){
-          return res.status(400).send('Game already bought.')            
-        } else{
-              libraryList.push(game);
+          return res.status(400).send('Game already bought.');
+        } else {
+          library.push(game);
         }
+      }
+    } else {
+      libraryList.push(game);
     }
+
+    // for(let i = 0; i < libraryList.length; i++){
+    //     if(libraryList[i]._id === game._id){
+    //       return res.status(400).send('Game already bought.')            
+    //     } else{
+    //        return libraryList.push(game);
+    //     }
+    // }
     
 
     
     const libraryUpdate = await Library.findByIdAndUpdate(req.params.id,{
       user: userFound,
       games: libraryList
+
     },
     {new: true}
    );

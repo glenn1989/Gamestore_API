@@ -7,21 +7,21 @@
 ###
 post {{base_url}}
 Content-Type: application/json
-x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FmMjM2YjZjYzExMTQ5OTlhN2FhYmMiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI4NTQzNzB9.bXUf0hDfrCb4LKwHrm_vPaXusAEN6rahe_KJ9aMHfSA
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I1Y2JiZjVhOTdhMjZkMGM2Zjg5MjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI4NTg1NTl9.r_fd7eu6ryKCnwiDHg2gp3haDBnHNOCdWIEC74VBokE
 
 {
-    "user":"63af236b6cc1114999a7aabc"
+    "user":"63b5cbbf5a97a26d0c6f8921"
 }
 
 ###
-@objId = "63b5c03ce2a91c29d69a555c"
-put {{base_url}}/63b5c03ce2a91c29d69a555c
+@objId = ""
+put {{base_url}}/63b5ced4d71678433ca3e994
 Content-Type: application/json
-x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FmMjM2YjZjYzExMTQ5OTlhN2FhYmMiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI4NTQzNzB9.bXUf0hDfrCb4LKwHrm_vPaXusAEN6rahe_KJ9aMHfSA
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I1Y2JiZjVhOTdhMjZkMGM2Zjg5MjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI4NTg1NTl9.r_fd7eu6ryKCnwiDHg2gp3haDBnHNOCdWIEC74VBokE
 
 {
-    "user":"63af236b6cc1114999a7aabc",
-    "game":"63af23d86cc1114999a7aac4"
+    "user":"63b5cbbf5a97a26d0c6f8921",
+    "game":"63b5cc625a97a26d0c6f8929"
 }
 
 ###

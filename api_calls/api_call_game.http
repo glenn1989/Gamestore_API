@@ -5,12 +5,12 @@
 
 post {{base_url}}
 Content-Type: application/json
-x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODYxMTgzMGY0NWQ0YjA0MmYwNjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzExMzcwNjF9.MUGU8qnUTZjhORDbLaC9u_csadMWaqwO00pZvsF6Z94
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I1Y2JiZjVhOTdhMjZkMGM2Zjg5MjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI4NTg1NTl9.r_fd7eu6ryKCnwiDHg2gp3haDBnHNOCdWIEC74VBokE
 
 {
     "title":"Need For Speed",
-    "genreId":"639a0d156bac7e7ca6907195",
-    "studioId":"639b8749830f45d4b042f066"
+    "genreId":"63b5cc0f5a97a26d0c6f8923",
+    "studioId":"63b5cc275a97a26d0c6f8925"
     
 }
 

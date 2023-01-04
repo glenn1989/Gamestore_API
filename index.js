@@ -7,7 +7,7 @@ const app = express();
 const users = require('./routes/users');
 const games = require('./routes/games');
 const genres = require('./routes/genres');
-const libraries = require('./routes/libraries_fawnless');
+const libraries = require('./routes/libraries');
 const studios = require('./routes/studios');
 const auth = require('./routes/auth');
 require('dotenv').config();

@@ -6,7 +6,8 @@ const {gameSchema} = require('./game');
 const Library = mongoose.model('Library', new mongoose.Schema({
     user: {
         type: userSchema,
-        required:true
+        required:true,
+        unique: true
     },
     games: [gameSchema]
 }))

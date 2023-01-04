@@ -6,13 +6,13 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../middleware/auth');
 const admin = require('../middleware/admin');
-const Fawn = require('fawn');
-const config = require('config');
+const _ = require('lodash');
 
-Fawn.init(config.get('db'));
 
 router.get('/', async (req,res) => {
-    const libraries = await Library.find().sort();
+    const libraries = await Library.find();
+    if(!libraries) return res.status(400).send('No library found');
+
     res.send(libraries);
 })
 
@@ -24,26 +24,18 @@ router.post('/', auth ,async (req, res) => {
     const user = await User.findById(req.body.user);
     if (!user) return res.status(400).send('Invalid user.');
 
-    let library = new Library({
+    let libraries = new Library({
       user: {
         _id: user._id,
         name: user.name, 
-        email: user.email
+        email: user.email,
+        birthdate: user.birthdate,
+        password: user.password
       }
     });
-
-  
-    try {
-      new Fawn.Task()
-        .save('libraries', library )
-        .run();
-    
-      res.send(library);
-    }
-    catch(ex) {
-      res.status(500).send('Something failed.');
-    }
-  });
+    libraries = await libraries.save();
+    res.send(_.pick(libraries,['_id','user._id','user.name','user.email']));
+});
 
   router.put('/:id', auth ,async(req,res) => {
     const { error } = validate(req.body);
@@ -56,23 +48,34 @@ router.post('/', auth ,async (req, res) => {
     if(!userFound) return res.status(400).send('No user found.')
 
     const library = await Library.findById(req.params.id);
+    if(!library) return res.status(400).send('no library found')
     const libraryList = library.games;
 
     for(let i = 0; i < libraryList.length; i++){
-      if(libraryList[i]._id === game._id){
-        return res.status(400).send('Game already bought.')
-      } else{
-        libraryList.push(game);
-      }
+      console.log(libraryList[i]._id)
     }
+    console.log(game._id)
+
+    if(libraryList.length != 0){
+      for(let i = 0; i < libraryList.length; i++){
+        if(libraryList[i]._id != game._id){
+          libraryList.push(game);
+        }
+      }
+    } else {
+      libraryList.push(game);
+    }
+
+
     const libraryUpdate = await Library.findByIdAndUpdate(req.params.id,{
       user: userFound,
       games: libraryList
+
     },
     {new: true}
    );
     
-    res.send(libraryUpdate);
+    res.send(_.pick(libraryUpdate,['_id','user._id','user.name','user.email','games']));
   })
 
   // delete library

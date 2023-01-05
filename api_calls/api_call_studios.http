@@ -1,7 +1,7 @@
 # Studio Calls #
 
-@base_url= http://localhost:3000/api/studios
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I1Y2JiZjVhOTdhMjZkMGM2Zjg5MjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI4NTg1NTl9.r_fd7eu6ryKCnwiDHg2gp3haDBnHNOCdWIEC74VBokE
+@base_url= http://34.79.204.214:3000/api/studios
+@token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I2ZjllYzhiMDg2MTRlOGFkZTkxNTYiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI5MzU5MTZ9.5jwSFh48-uB3n7z0mfqaeWzS8zzPuqxEi9kBKaLj9lM
 
 
 post {{base_url}}
@@ -27,8 +27,7 @@ x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I1Y2JiZjVhOTdhM
 }
 
 ###
-@objId=639b8749830f45d4b042f066
-put {{base_url}}/{{objId}}
+put {{base_url}}/63b5e645a592e42d8c7e08cc
 Content-Type: application/json
 x-auth-token:{{token}}
 
@@ -38,7 +37,7 @@ x-auth-token:{{token}}
 }
 
 ###
-@objId=639b8749830f45d4b042f066
+@objId=63b5e645a592e42d8c7e08cc
 
 get {{base_url}}/{{objId}}
 Content-Type: application/json

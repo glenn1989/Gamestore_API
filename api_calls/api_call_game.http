@@ -1,16 +1,16 @@
 # USER CALLS #
 
-@base_url=http://localhost:3000/api/games
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I1Y2JiZjVhOTdhMjZkMGM2Zjg5MjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI4NTg1NTl9.r_fd7eu6ryKCnwiDHg2gp3haDBnHNOCdWIEC74VBokE
+@base_url=http://34.79.204.214:3000/api/games
+@tokenAD=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I2ZjllYzhiMDg2MTRlOGFkZTkxNTYiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI5MzU5MTZ9.5jwSFh48-uB3n7z0mfqaeWzS8zzPuqxEi9kBKaLj9lM
 
 post {{base_url}}
 Content-Type: application/json
-x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I1Y2JiZjVhOTdhMjZkMGM2Zjg5MjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI4NTg1NTl9.r_fd7eu6ryKCnwiDHg2gp3haDBnHNOCdWIEC74VBokE
+x-auth-token: {{tokenAD}}
 
 {
-    "title":"Need For Speed",
-    "genreId":"63b6935d993c906ca746aece",
-    "studioId":"63b692f9bf3529b9b6056a52"
+    "title":"Star Wars: Battlefront",
+    "genreId":"63b6fb5b8b08614e8ade9162",
+    "studioId":"63b5e645a592e42d8c7e08cc"
     
 }
 
@@ -32,11 +32,11 @@ x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I1Y2JiZjVhOTdhM
 @objId=639b8dbf6763034c6cedfb22
 delete {{base_url}}/{{objId}}
 Content-Type: application/json
-x-auth-token: {{token}}
+x-auth-token: {{tokenAD}}
 
 ###
 
-@objId2=639dcefb6763034c6cedfb2a
+@objId2=63b5e0b132bb75bef1b79440
 
 get {{base_url}}/{{objId2}}
 Content-Type: application/json
@@ -45,11 +45,3 @@ Content-Type: application/json
 get {{base_url}}
 Content-Type: application/json
 
-###
-
-get {{base_url}}/studio/CD Project Red
-Content-Type: application/json
-
-###
-get {{base_url}}/genre/RPG
-Content-Type: application/json

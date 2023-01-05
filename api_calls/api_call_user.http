@@ -1,6 +1,6 @@
 # USER CALLS #
 
-@base_url=http://localhost:3000/api/users
+@base_url=http://34.79.204.214:3000/api/users
 @tokenNA=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODFkODZhOGRmM2JiMzY3NjQ1YWYiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjcxNTY3NzcyfQ.4JB2A6sLkYLf21CNTE4J7UbWnCkbxrWz60OoIuCPZWg
 
 
@@ -14,7 +14,8 @@ Content-Type: application/json
     "name":"Stefanie",
     "email":"stef1@test.be",
     "birthdate":"2001-10-20T01:00:01",
-    "password":"12345"
+    "password":"12345",
+    "isAdmin":"true"
 }
 
 ###

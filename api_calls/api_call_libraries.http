@@ -2,51 +2,35 @@
 
 
 
-@base_url = http://localhost:3000/api/libraries
-
+@base_url = http://34.79.204.214:3000/api/libraries
+@tokenAD=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I2ZjllYzhiMDg2MTRlOGFkZTkxNTYiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI5MzU5MTZ9.5jwSFh48-uB3n7z0mfqaeWzS8zzPuqxEi9kBKaLj9lM
 ###
 post {{base_url}}
 Content-Type: application/json
-x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I1Y2JiZjVhOTdhMjZkMGM2Zjg5MjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI5MTA5OTF9.rPECCRjXLCvVvPM7UV0j35BTtuwPlJA7EV8jJAQVHWg
+x-auth-token: {{tokenAD}}
 
 {
-    "user":"63b5cbbf5a97a26d0c6f8921"
+    "user":"63b6f9ec8b08614e8ade9156"
 }
 
 ###
-put {{base_url}}/63b6af03b91e9f23cd7a8d21
+put {{base_url}}/63b6fd4e8f7da6da0d6be22c
 Content-Type: application/json
-x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I1Y2JiZjVhOTdhMjZkMGM2Zjg5MjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI5MTA5OTF9.rPECCRjXLCvVvPM7UV0j35BTtuwPlJA7EV8jJAQVHWg
+x-auth-token: {{tokenAD}}
 
 {
-    "user":"63b5cbbf5a97a26d0c6f8921",
-    "game":"63b69bf6bb8b07c4d5abcaee"
+    "user":"63b6f9ec8b08614e8ade9156",
+    "game":"63b6fbc78b08614e8ade9168"
 }
 
 ###
 @objId=639ddb097207590932054f3d
 put {{base_url}}/{{objId}}
 Content-Type: application/json
+x-auth-token: {{tokenAD}}
 
 {
     "user":"639b81d86a8df3bb367645af",
     "game":"639b8dbf6763034c6cedfb22"
 }
 
-###
-
-post {{base_url}}
-Content-Type: application/json
-x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODYxMTgzMGY0NWQ0YjA0MmYwNjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzE1MzUyNTJ9.RBtLHJJKPyUPX_PS1tga1H-HEYaKax93xWcTwTJudS4
-
-
-{
-    "user":"639b8611830f45d4b042f061"
-}
-
-###
-
-@objId2= 63a1a5643572df16dec0d496
-delete {{base_url}}/{{objId2}}
-Content-Type: application/json
-x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODYxMTgzMGY0NWQ0YjA0MmYwNjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzE1MzUyNTJ9.RBtLHJJKPyUPX_PS1tga1H-HEYaKax93xWcTwTJudS4

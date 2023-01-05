@@ -1,8 +1,10 @@
 # GENRE CALLS #
 
-@base_url=http://localhost:3000/api/genres
+@base_url=http://34.79.204.214:3000/api/genres
 
-@tokenAD=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I1Y2JiZjVhOTdhMjZkMGM2Zjg5MjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI4NTg1NTl9.r_fd7eu6ryKCnwiDHg2gp3haDBnHNOCdWIEC74VBokE
+@tokenAD=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I2ZjllYzhiMDg2MTRlOGFkZTkxNTYiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI5MzU5MTZ9.5jwSFh48-uB3n7z0mfqaeWzS8zzPuqxEi9kBKaLj9lM
+
+
 post {{base_url}}
 Content-Type: application/json
 x-auth-token: {{tokenAD}}
@@ -13,7 +15,7 @@ x-auth-token: {{tokenAD}}
 
 ###
 
-@objId=639a09d13b1c83fb41dc364f
+@objId=63b6fb5b8b08614e8ade9162
 put {{base_url}}/{{objId}}
 Content-Type: application/json
 x-auth-token: {{tokenAD}}

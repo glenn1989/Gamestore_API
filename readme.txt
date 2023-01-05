@@ -47,6 +47,7 @@ Zoals u zal kunnen zien in de api_calls zit alles al voorgeprogrammeerd, maar zu
 De deployment zelf is zoals u aangegeven hebt in uw video op Toledo, enkel heb ik problemen met de SSH key die expired om de zoveel tijd, na heel wat uren zoeken en proberen 
 ben ik er niet in geslaagd dit onbeperkt werkende te laten.
 
+Om de API te starten moet er een privatekey ingegeven worden: deze kan u instellen door middel van "gamestore_jwtPrivateKey" in te stellen. 
 
 
 

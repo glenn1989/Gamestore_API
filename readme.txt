@@ -43,4 +43,11 @@ Hierbij zal na de nodige controles de game toegevoegd worden aan de array in de 
 Er is ook een delete optie, deze is echter enkel toegestaan voor admin gebruikers.
 
 
+Zoals u zal kunnen zien in de api_calls zit alles al voorgeprogrammeerd, maar zullen de id's & tokens nog moeten opnieuw geconfigureerd worden na deployment.
+De deployment zelf is zoals u aangegeven hebt in uw video op Toledo, enkel heb ik problemen met de SSH key die expired om de zoveel tijd, na heel wat uren zoeken en proberen 
+ben ik er niet in geslaagd dit onbeperkt werkende te laten.
+
+
+
+
 

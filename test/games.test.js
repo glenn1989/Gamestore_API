@@ -8,6 +8,8 @@ const {Studio} = require('../models/studio');
 const expect = require('chai').expect;
 
 let server;
+const adtoken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI5MTc1NTB9.CTOUmWs95HHnfo-l817vr_aXD_ZZ-syEXpTenDanC8g'
+
 describe('api/games', () => {
     beforeEach( () => { server = require('../index');})
     afterEach( async () => {
@@ -87,7 +89,7 @@ describe('GET/studio/:studio', () => {
 
 describe('POST/', () =>  {
     it('should return 200', async () => {
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIwNzYxMDJ9.-o2MkiO_SUdLSDi_7hIae7Y-wMuL6DS3DFG_8C4BGSE'
+        
 
         await Studio.collection.insertOne({name:"Rockstar Games", location:"London"});
         const studio = await request(server).get('/api/studios'); 
@@ -100,7 +102,7 @@ describe('POST/', () =>  {
         const res = await request(server)
         .post('/api/games')
         .set('Content-type', 'application/json')
-        .set('x-auth-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIwNzYxMDJ9.-o2MkiO_SUdLSDi_7hIae7Y-wMuL6DS3DFG_8C4BGSE')
+        .set('x-auth-token', adtoken)
         .send({
             title: 'game1',
         genreId: genreId,
@@ -129,7 +131,7 @@ describe('POST/', () =>  {
     });
 
     it('it should return 403 - no admin', async () => {
-        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5YmFhMmFlOGI0OWI3NDViMjVlMzQiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjcyMDY3NzU5fQ.QM_vspcQqOmns_HDlvNeqp7_WWFAOgDGIpAzvA4KRK0"
+        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I2Yjc2ZGY2MGU0ZjlhMTBiMGNmMjEiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjcyOTE4ODkzfQ.ocHMVgB88qLyk9nV06p35IAtdkUFm-GDseQUp_KNe6E"
     
         await Studio.collection.insertOne({name:"Rockstar Games", location:"London"});
         const studio = await request(server).get('/api/studios');
@@ -151,7 +153,7 @@ describe('POST/', () =>  {
 describe('DELETE/:id', () => {
     it('should delete game', async () => {
 
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIwNzYxMDJ9.-o2MkiO_SUdLSDi_7hIae7Y-wMuL6DS3DFG_8C4BGSE'
+        
         await Studio.collection.insertOne({name:"Rockstar Games", location:"London"});
         const studio = await request(server).get('/api/studios');
         const studioRes = await request(server).get(`/api/studios/${studio.body[0]._id}`);
@@ -172,20 +174,20 @@ describe('DELETE/:id', () => {
         const response = await request(server).get('/api/games');
         const res = await request(server)
         .delete(`/api/games/${response.body[0]._id}`)
-        .set('x-auth-token',token);
+        .set('x-auth-token',adtoken);
 
         expect(res.status).to.equal(200);
         
     });
 
-    it('should throw error 404', async () => {
+    it('should throw error 404: no game found', async () => {
         const gameId = "63a9b85ebf849e6a6806cec2"
         const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIwNzYxMDJ9.-o2MkiO_SUdLSDi_7hIae7Y-wMuL6DS3DFG_8C4BGSE'
 
         const response = await request(server).get('/api/games');
         const res = await request(server)
         .delete(`/api/games/${gameId}`)
-        .set('x-auth-token',token);
+        .set('x-auth-token',adtoken);
         
         expect(res.status).to.equal(404);
     })

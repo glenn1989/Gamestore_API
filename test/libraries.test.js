@@ -6,6 +6,7 @@ const {Library} = require('../models/library')
 const {Studio} = require('../models/studio');
 const expect = require('chai').expect;
 
+const adtoken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI5MTc1NTB9.CTOUmWs95HHnfo-l817vr_aXD_ZZ-syEXpTenDanC8g'
 
 describe('api/libraries', () => {
     beforeEach( () => { server = require('../index');})
@@ -19,23 +20,23 @@ describe('api/libraries', () => {
 
 describe('POST/', () => {
     it('should be status 200', async () => {
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIxNjc2MjV9._Takc0zOrRng-v5MC5xeE16k_eAE40K6KvhU6kQPl0U';
-        const user = await request(server).get('/api/users/me').set('x-auth-token',token)
+        
+        const user = await request(server).get('/api/users/me').set('x-auth-token',adtoken)
         const res = await request(server)
         .post('/api/libraries')
         .set('Content-type', 'application/json')
-        .set('x-auth-token',token)
+        .set('x-auth-token',adtoken)
         .send({user:user.body._id})
 
         expect(res.status).to.equal(200)
     });
     it('should be status 400: invalid user', async () => {
-        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIxNjc2MjV9._Takc0zOrRng-v5MC5xeE16k_eAE40K6KvhU6kQPl0U";
+        
         const userId = 'd568462668'
         const res = await request(server)
         .post('/api/libraries')
         .set('Content-type', 'application/json')
-        .set('x-auth-token',token)
+        .set('x-auth-token',adtoken)
         .send({user:userId})
 
         expect(res.status).to.equal(400)
@@ -53,7 +54,7 @@ describe('POST/', () => {
 });
 describe('PUT/:id', () => {
     it('should return status 200', async () => {
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIxNjc2MjV9._Takc0zOrRng-v5MC5xeE16k_eAE40K6KvhU6kQPl0U';
+       
         const userId = '63a9db46338c483d42abfb84'
         
         await Genre.collection.insertOne({name:'RPG'});
@@ -77,7 +78,7 @@ describe('PUT/:id', () => {
         const res = await request(server)
         .put(`/api/libraries/${library.body[0]._id}`)
         .set('Content-type', 'application/json')
-        .set('x-auth-token',token)
+        .set('x-auth-token',adtoken)
         .send({user: userId, game: game.body[0]._id});
 
         expect(res.status).to.equal(200);
@@ -96,16 +97,16 @@ describe('DELETE/:id', () => {
 
         const res = await request(server)
         .delete(`/api/libraries/${library.body[0]._id}`)
-        .set('x-auth-token',token);
+        .set('x-auth-token',adtoken);
 
         expect(res.status).to.equal(200);
     });
     it('should be status 404: library is not found', async () => {
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIxNjc2MjV9._Takc0zOrRng-v5MC5xeE16k_eAE40K6KvhU6kQPl0U';
+        
 
         const libraryId = '63a9db46338c483d42abfb84'
 
-        const res = await request(server).delete(`/api/libraries/${libraryId}`).set('x-auth-token',token);
+        const res = await request(server).delete(`/api/libraries/${libraryId}`).set('x-auth-token',adtoken);
 
         expect(res.status).to.equal(404);
 

@@ -2,6 +2,8 @@ const request = require('supertest');
 const {Studio} = require('../models/studio');
 const expect = require('chai').expect;
 
+const adtoken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI5MTc1NTB9.CTOUmWs95HHnfo-l817vr_aXD_ZZ-syEXpTenDanC8g'
+
 
 describe('api/studios', () => {
     beforeEach( () => { server = require('../index');})
@@ -13,17 +15,17 @@ describe('api/studios', () => {
 
 describe('POST/', () => {
     it('should be status 200', async () => {
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIxNjc2MjV9._Takc0zOrRng-v5MC5xeE16k_eAE40K6KvhU6kQPl0U';
+        
         const res = await request(server)
         .post('/api/studios')
         .set('Content-type', 'application/json')
-        .set('x-auth-token',token)
+        .set('x-auth-token',adtoken)
         .send({name:'studio1',location:'testloc1'})
 
         expect(res.status).to.equal(200)
     });
     it('should be status 403: acces denied', async () => {
-        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5YmFhMmFlOGI0OWI3NDViMjVlMzQiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjcyMDY3NzU5fQ.QM_vspcQqOmns_HDlvNeqp7_WWFAOgDGIpAzvA4KRK0";
+        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I2Yjc2ZGY2MGU0ZjlhMTBiMGNmMjEiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjcyOTE4ODkzfQ.ocHMVgB88qLyk9nV06p35IAtdkUFm-GDseQUp_KNe6E"
         const res = await request(server)
         .post('/api/studios')
         .set('Content-type', 'application/json')
@@ -50,7 +52,7 @@ describe('DELETE/:id', () => {
         const studio = await request(server).get('/api/studios')
         const res = await request(server)
         .delete(`/api/studios/${studio.body[0]._id}`)
-        .set('x-auth-token',token)
+        .set('x-auth-token',adtoken)
 
         expect(res.status).to.equal(200);
     });
@@ -60,19 +62,19 @@ describe('DELETE/:id', () => {
         
         const res = await request(server)
         .delete(`/api/studios/${id}`)
-        .set('x-auth-token',token);
+        .set('x-auth-token',adtoken);
 
         expect(res.status).to.equal(404);
     });
 });
 describe('PUT/:id', () => {
     it('should be status 200: update record', async () => {
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIxNjc2MjV9._Takc0zOrRng-v5MC5xeE16k_eAE40K6KvhU6kQPl0U'
+        
         await Studio.collection.insertOne({name:"test studio 1", location:'location studio 1'});
         const studio = await request(server).get('/api/studios')
         const res = await request(server)
         .put(`/api/studios/${studio.body[0]._id}`)
-        .set('x-auth-token', token)
+        .set('x-auth-token', adtoken)
         .send({name:"test studio 2", location:'location studio 2'});
 
         const studio2 = await request(server).get('/api/studios')
@@ -81,12 +83,12 @@ describe('PUT/:id', () => {
         expect(res.status).to.equal(200)
     });
     it('should be status 404: genre not found', async () => {
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2E5ZGI0NjMzOGM0ODNkNDJhYmZiODQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzIxNjc2MjV9._Takc0zOrRng-v5MC5xeE16k_eAE40K6KvhU6kQPl0U'
+        
         const id = '63a9db46338c483d42abfb84';
 
         const res = await request(server)
         .put(`/api/studios/${id}`)
-        .set('x-auth-token', token)
+        .set('x-auth-token', adtoken)
         .send({name:'test studios', location:'location studio 2'});
 
         expect(res.status).to.equal(404);

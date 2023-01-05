@@ -51,21 +51,7 @@ router.post('/', auth ,async (req, res) => {
     if(!library) return res.status(400).send('no library found')
     const libraryList = library.games;
 
-    for(let i = 0; i < libraryList.length; i++){
-      console.log(libraryList[i]._id)
-    }
-    console.log(game._id)
-
-    if(libraryList.length != 0){
-      for(let i = 0; i < libraryList.length; i++){
-        if(libraryList[i]._id != game._id){
-          libraryList.push(game);
-        }
-      }
-    } else {
-      libraryList.push(game);
-    }
-
+    libraryList.push(game)
 
     const libraryUpdate = await Library.findByIdAndUpdate(req.params.id,{
       user: userFound,

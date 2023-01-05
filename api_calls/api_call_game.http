@@ -9,8 +9,8 @@ x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I1Y2JiZjVhOTdhM
 
 {
     "title":"Need For Speed",
-    "genreId":"63b5cc0f5a97a26d0c6f8923",
-    "studioId":"63b5cc275a97a26d0c6f8925"
+    "genreId":"63b6935d993c906ca746aece",
+    "studioId":"63b692f9bf3529b9b6056a52"
     
 }
 
@@ -18,12 +18,12 @@ x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I1Y2JiZjVhOTdhM
 
 post {{base_url}}
 Content-Type: application/json
-x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I1Y2JiZjVhOTdhMjZkMGM2Zjg5MjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI4NTg1NTl9.r_fd7eu6ryKCnwiDHg2gp3haDBnHNOCdWIEC74VBokE
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I1Y2JiZjVhOTdhMjZkMGM2Zjg5MjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI5MTA5OTF9.rPECCRjXLCvVvPM7UV0j35BTtuwPlJA7EV8jJAQVHWg
 
 {
     "title":"The Witcher 3: Wild Hunt",
-    "genreId":"63b5cc0f5a97a26d0c6f8923",
-    "studioId":"63b5cc275a97a26d0c6f8925"
+    "genreId":"63b6935d993c906ca746aece",
+    "studioId":"63b692f9bf3529b9b6056a52"
     
 }
 

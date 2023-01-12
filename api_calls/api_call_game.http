@@ -1,6 +1,6 @@
 # USER CALLS #
 
-@base_url=http://34.79.204.214:3000/api/games
+@base_url=http://20.4.219.159:3000/api/games
 @tokenAD=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I2ZjllYzhiMDg2MTRlOGFkZTkxNTYiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI5MzU5MTZ9.5jwSFh48-uB3n7z0mfqaeWzS8zzPuqxEi9kBKaLj9lM
 
 post {{base_url}}
@@ -18,12 +18,12 @@ x-auth-token: {{tokenAD}}
 
 post {{base_url}}
 Content-Type: application/json
-x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I1Y2JiZjVhOTdhMjZkMGM2Zjg5MjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI5MTA5OTF9.rPECCRjXLCvVvPM7UV0j35BTtuwPlJA7EV8jJAQVHWg
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I4NTA4YjlmOWUwZmYwMzY3NjNlNjUiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzMwMjYyNjV9.YbgV4BTX3mxUfBq30qknHDCErf3Jo5j2inuiZBBHe9U
 
 {
     "title":"The Witcher 3: Wild Hunt",
-    "genreId":"63b6935d993c906ca746aece",
-    "studioId":"63b692f9bf3529b9b6056a52"
+    "genreId":"63b85ae5eb6ae3bd20330254",
+    "studioId":"63b850f39f9e0ff036763e6a"
     
 }
 

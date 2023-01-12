@@ -1,6 +1,6 @@
 # USER CALLS #
 
-@base_url=http://34.79.204.214:3000/api/users
+@base_url=http://20.4.219.159:3000/api/users
 @tokenNA=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODFkODZhOGRmM2JiMzY3NjQ1YWYiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjcxNTY3NzcyfQ.4JB2A6sLkYLf21CNTE4J7UbWnCkbxrWz60OoIuCPZWg
 
 
@@ -20,16 +20,10 @@ Content-Type: application/json
 
 ###
 
-post {{base_url}}
+get {{base_url}}/me
 Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I2ZjllYzhiMDg2MTRlOGFkZTkxNTYiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzI5MzU5MTZ9.5jwSFh48-uB3n7z0mfqaeWzS8zzPuqxEi9kBKaLj9lM
 
-{
-    "name":"Tinee",
-    "email":"tine@test.be",
-    "birthdate":"1999-08-24T01:00:01",
-    "password":"12345",
-    "isAdmin":"false"
-}
 
 ###
 
@@ -48,9 +42,3 @@ Content-Type: application/json
 DELETE {{base_url}}/{{objId2}}
 Content-Type: application/json
 x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzliODYxMTgzMGY0NWQ0YjA0MmYwNjEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzE1NDA5MDR9._sxr36xLTw00o6602Ok2RHOxV4-AVUOpZgh39ZOh19I
-
-###
-
-get {{base_url}}/me
-Content-Type: application/json
-x-auth-token:{{tokenNA}}

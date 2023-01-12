@@ -2,7 +2,7 @@
 
 @base_url=http://20.4.219.159:3000/api/genres
 
-@tokenAD= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I4NTA4YjlmOWUwZmYwMzY3NjNlNjUiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzMwMjM2ODF9.B43Rhjvuvahrkcmeub3nI2mKvvYfKq4MOi8I1L6wIlM
+@tokenAD= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I4NTA4YjlmOWUwZmYwMzY3NjNlNjUiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NzMwMjYyNjV9.YbgV4BTX3mxUfBq30qknHDCErf3Jo5j2inuiZBBHe9U
 
 
 post {{base_url}}
